@@ -92,4 +92,30 @@ key_n2_1
 val_n2_1
 key_n3_1
 val_n3_1
+
+[NODE1] STOP
+[+] Running 1/1
+ ⠿ Container etcd-1  Stopped  
+
+[NODE2] etcdctl get --prefix key
+key_n1_0
+val_n1_0
+key_n2_0
+val_n2_0
+key_n3_0
+val_n3_0
+key_n1_1
+val_n1_1
+key_n2_1
+val_n2_1
+key_n3_1
+val_n3_1
+
+[NODE2] STOP
+[+] Running 1/1
+ ⠿ Container etcd-2  Stopped
+
+[NODE3] etcdctl get --prefix key
+{"level":"warn","ts":"2022-09-09T06:10:15.999Z","caller":"clientv3/retry_interceptor.go:62","msg":"retrying of unary invoker failed","target":"endpoint://client-f891c00b-f259-4d72-9c54-61af5d68e336/127.0.0.1:2379","attempt":0,"error":"rpc error: code = DeadlineExceeded desc = context deadline exceeded"}
+Error: context deadline exceeded 
 ```
